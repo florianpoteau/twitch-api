@@ -1,0 +1,1 @@
+export const urlStreams = "https://api.twitch.tv/helix/streams?first=100";
