@@ -1,15 +1,36 @@
 import axios from "axios";
-import { urlStreams } from "./uri";
+import { urlCategories, urlStream, urlUser} from "./uri";
 
-function fetchVideos() {
-    return axios.get(urlStreams);
+function fetchCategories() {
+    return axios.get(urlCategories);
 }
 
-function fetchStream(id) {
-    return axios.get(urlStreams + id)
+function fetchStreamByCategorie(categoryId){
+    return axios.get(urlStream, {
+        params: {
+            game_id: categoryId,
+          },
+    });
+}
+
+function fetchStream(id){
+    return axios.get(urlStream, {
+        params: {
+            user_id: id
+        }
+    })
+}
+
+function fetchUser(id){
+    return axios.get(urlUser, {
+        params: {
+            user_id: id
+        }
+    })
 }
 
 export default{
-    fetchVideos,
+    fetchCategories,
+    fetchStreamByCategorie,
     fetchStream
 }

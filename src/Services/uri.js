@@ -1,1 +1,3 @@
-export const urlStreams = "https://api.twitch.tv/helix/streams?first=100";
+export const urlCategories = "https://api.twitch.tv/helix/games/top?first=30";
+export const urlStream = "https://api.twitch.tv/helix/streams";
+export const urlUser = "https://api.twitch.tv/helix/users"

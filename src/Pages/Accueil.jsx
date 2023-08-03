@@ -1,36 +1,31 @@
+// Accueil.js
 import React, { useEffect, useState } from 'react';
 import videoService from '../Services/videoService';
-import Video from '../Components/Video';
+import CarouselStream from '../Components/Carousel/CarouselStream';
 
 const Accueil = () => {
+    const [streams, setStreams] = useState([]);
 
-    const [videos, setVideos] = useState([]);
-
-    const fetchVideos = async () => {
+    const fetchStream = async () => {
         try {
-            let response = await videoService.fetchVideos();
-            setVideos(response.data.data);
-            console.log(response.data.data);
+            let response = await videoService.fetchStream();
+            setStreams(response.data.data);
         } catch (error) {
             console.log(error);
         }
     };
 
     useEffect(() => {
-        fetchVideos();
+        fetchStream();
     }, []);
 
     return (
-        <>
-            <div>
-                <h1 className='mt-3 mb-5 text-center text-danger'>Actuellement en stream</h1>
+        <div className="container mt-5" style={{paddingBottom: "12%"}}>
+            <h1 className="text-center text-danger mb-4">Actuellement en stream</h1>
+            <div className="d-flex justify-content-center carousel-container">
+                <CarouselStream streams={streams} width={600} height={400}/>
             </div>
-            <div className='d-flex justify-content-around flex-wrap'>
-                {videos.map((video, index) => (
-                    <Video key={index} video={video} width= {300} height= {200} />
-                ))}
-            </div>
-        </>
+        </div>
     );
 };
 
