@@ -1,5 +1,5 @@
 import axios from "axios";
-import { urlCategories, urlStream, urlUser} from "./uri";
+import { urlCategories, urlStream, urlUser, urlVideos} from "./uri";
 
 function fetchCategories() {
     return axios.get(urlCategories);
@@ -21,16 +21,17 @@ function fetchStream(id){
     })
 }
 
-function fetchUser(id){
-    return axios.get(urlUser, {
+function fetchVideos(userId){
+    return axios.get(urlVideos, {
         params: {
-            user_id: id
+            user_id: userId
         }
-    })
+    });
 }
 
 export default{
     fetchCategories,
     fetchStreamByCategorie,
-    fetchStream
+    fetchStream,
+    fetchVideos
 }

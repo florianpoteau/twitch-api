@@ -8,6 +8,8 @@ import auth from "./Services/auth"
 import Categorie from './Pages/Categorie';
 import StreamCategorie from './Pages/StreamCategorie';
 import StreamDetail from './Pages/StreamDetail';
+import Video from './Pages/Video';
+import Sidebar from './Components/Navbar/Sidebar';
 
 function App() {
   useEffect(() => {
@@ -17,6 +19,7 @@ function App() {
   return <>
   <div style={{backgroundColor: "black"}}>
     <Header/>
+    {/* <Sidebar /> */}
   <BrowserRouter>
 
     <Routes>
@@ -32,6 +35,9 @@ function App() {
       <Route element={
         <StreamDetail />
       } path={"/stream/:id"} />
+      <Route element={
+        <Video />
+      } path={"/video/:user_id"} />
     </Routes>
 
           
