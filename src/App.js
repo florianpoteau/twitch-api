@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Accueil from './Pages/Accueil';
 import Header from './Components/Navbar/Header';
 import { useEffect } from 'react';
-import auth from "./Services/auth"
+import auth from "./Services/auth";
 import Categorie from './Pages/Categorie';
 import StreamCategorie from './Pages/StreamCategorie';
 import StreamDetail from './Pages/StreamDetail';
